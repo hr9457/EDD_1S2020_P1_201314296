@@ -3,6 +3,8 @@
 
 #include "NodoListaDoble.h"
 #include <iostream>
+#include <conio.h>
+#include <fstream>//archivos
 
 using namespace std;
 
@@ -18,7 +20,7 @@ class ListaDobleEnlazada
         void insertarNodo(char arg);
         void eliminarNodo();
         void imprimirLista();
-        void generarGrafico();
+        void generarDot();
         void generarImagen();
         ~ListaDobleEnlazada();
 };

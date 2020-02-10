@@ -46,13 +46,50 @@ void ListaDobleEnlazada::eliminarNodo(){
 }
 
 //impresion de la lista (pruebas)
-void ListaDobleEnlazada::imprimirLista(){}
+void ListaDobleEnlazada::imprimirLista(){
+    if(estadoLista()==true){
+        cout<<"NO HAY ELEMENTOS EN LA LISTA"<<endl;
+        getch();
+    }else{
+        NodoListaDoble *nodoTemporal = primero;
+        while(nodoTemporal!=NULL){
+            cout<<"<-- "<<nodoTemporal->getLetra()<<" -->"<<endl;
+            nodoTemporal = nodoTemporal->siguiente;
+        }
+        getch();
+    }
+}
 
 //metodo para generar el grafo - Graphviz
-void ListaDobleEnlazada::generarGrafico(){}
+void ListaDobleEnlazada::generarDot(){
+    int numeroNodo = 0;
+    ofstream archivo("ListaDobleEnlazada.dot");//escribir un archivo
+    archivo<<"digraph ListaDobleEnlazada {"<<endl;
+    //para color los nodos
+    if(estadoLista()==true){        
+    }else{        
+        NodoListaDoble *nodoTemporal = primero;
+        while(nodoTemporal!=NULL){
+            archivo<<"Nodo"<<numeroNodo<<"[shape=box,label="<<
+            nodoTemporal->getLetra()<<"];"<<endl;
+            nodoTemporal = nodoTemporal->siguiente;
+            numeroNodo = numeroNodo + 1;
+        }
+    }
+    //union de los nodos
+    for (int i = 0; i == numeroNodo; i++)
+    {
+        archivo<<"Nodo"<<i<<"->Nodo"<<i+1<<";"<<endl;
+        archivo<<"Nodo"<<i+1<<"->Nodo"<<i<<";"<<endl;
+    }    
+    archivo<<"label = \" Lista doblemente enlazada\" "<<endl;
+    archivo<<"}"<<endl;
+    archivo<<""<<endl;
+    archivo.close();
+}
 
 //metodo para generar imagen del grafo
-void ListaDobleEnlazada::generarGrafico(){}
+void ListaDobleEnlazada::generarImagen(){}
 
 //destructor
 ListaDobleEnlazada::~ListaDobleEnlazada()
