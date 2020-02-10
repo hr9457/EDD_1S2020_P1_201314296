@@ -2,6 +2,8 @@
 #define LISTADOBLEENLAZADA_H
 
 #include "NodoListaDoble.h"
+#include <string>
+#include <windows.h>
 #include <iostream>
 #include <conio.h>
 #include <fstream>//archivos

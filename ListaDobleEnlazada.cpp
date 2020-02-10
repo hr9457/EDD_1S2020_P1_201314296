@@ -63,7 +63,7 @@ void ListaDobleEnlazada::imprimirLista(){
 //metodo para generar el grafo - Graphviz
 void ListaDobleEnlazada::generarDot(){
     int numeroNodo = 0;
-    ofstream archivo("ListaDobleEnlazada.dot");//escribir un archivo
+    ofstream archivo("ArchivosDot\\ListaDobleEnlazada.dot");//escribir un archivo
     archivo<<"digraph ListaDobleEnlazada {"<<endl;
     //para color los nodos
     if(estadoLista()==true){        
@@ -77,7 +77,7 @@ void ListaDobleEnlazada::generarDot(){
         }
     }
     //union de los nodos
-    for (int i = 0; i == numeroNodo; i++)
+    for (int i = 0; i < numeroNodo-1; i++)
     {
         archivo<<"Nodo"<<i<<"->Nodo"<<i+1<<";"<<endl;
         archivo<<"Nodo"<<i+1<<"->Nodo"<<i<<";"<<endl;
@@ -89,9 +89,9 @@ void ListaDobleEnlazada::generarDot(){
 }
 
 //metodo para generar imagen del grafo
-void ListaDobleEnlazada::generarImagen(){}
+void ListaDobleEnlazada::generarImagen(){
+    system("dot.exe -Tpng ArchivosDot\\ListaDobleEnlazada.dot -o Reportes\\ListaDobleEnlzada.png");
+}
 
 //destructor
-ListaDobleEnlazada::~ListaDobleEnlazada()
-{
-}
+ListaDobleEnlazada::~ListaDobleEnlazada(){}
