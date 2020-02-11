@@ -14,8 +14,9 @@ class NodoCircular
 
     public:
         NodoCircular *siguiente;
-        NodoCircular *anterior;
         NodoCircular(string arg1,string arg2);
+        string getNombre();
+        string getRuta();
         ~NodoCircular();
 };
 

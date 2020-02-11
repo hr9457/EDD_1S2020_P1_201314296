@@ -4,6 +4,8 @@
 #include "NodoCircular.h"
 #include <string>
 #include <iostream>
+#include <conio.h>
+#include <fstream>
 
 using namespace std;
 
@@ -15,7 +17,7 @@ class ListaCircular
     public:
         ListaCircular();
         bool estadoLista();
-        void insertarNodo();
+        void insertarNodo(string arg1,string arg2);
         void imprimirLista();
         void generarDot();
         void generarImagen();

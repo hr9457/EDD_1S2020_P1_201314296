@@ -65,7 +65,7 @@ void ListaDobleEnlazada::generarDot(){
     int numeroNodo = 0;
     ofstream archivo("ArchivosDot\\ListaDobleEnlazada.dot");//escribir un archivo
     archivo<<"digraph ListaDobleEnlazada {"<<endl;
-    //para color los nodos
+    //para colocar los nodos
     if(estadoLista()==true){        
     }else{        
         NodoListaDoble *nodoTemporal = primero;
