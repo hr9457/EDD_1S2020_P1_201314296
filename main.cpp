@@ -3,6 +3,7 @@
 #include <conio.h>
 
 int main(){
+    /*
     ListaDobleEnlazada list;
     list.insertarNodo('h');
     list.insertarNodo('e');
@@ -13,5 +14,6 @@ int main(){
     list.imprimirLista();
     list.generarDot();
     list.generarImagen();
+    */
     return 0;
 }
