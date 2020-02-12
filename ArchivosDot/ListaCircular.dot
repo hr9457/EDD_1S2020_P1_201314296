@@ -1,0 +1,16 @@
+digraph ListaDoble {
+rankdir=LR;
+Nodo0[shape=record,label="{<pre>|a|<next>}"];
+Nodo1[shape=record,label="{<pre>|b|<next>}"];
+Nodo2[shape=record,label="{<pre>|c|<next>}"];
+Nodo3[shape=record,label="{<pre>|a|<next>}"];
+Nodo4[shape=record,label="{<pre>|b|<next>}"];
+Nodo5[shape=record,label="{<pre>|c|<next>}"];
+Nodo0:next->Nodo1:pre;
+Nodo1:next->Nodo2:pre;
+Nodo2:next->Nodo3:pre;
+Nodo3:next->Nodo4:pre;
+Nodo4:next->Nodo5:pre;
+Nodo5:next->Nodo0:pre;
+label = " Lista Circular Simple";
+}

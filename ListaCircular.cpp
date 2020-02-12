@@ -17,7 +17,7 @@ bool ListaCircular::estadoLista(){
 
 //metodo insertar nodo
 void ListaCircular::insertarNodo(string arg1,string arg2){
-    if(estadoLista()==true){
+    if(estadoLista()==true){//si el primero nodo a insertar
         NodoCircular *nodoTemporal = new NodoCircular(arg1,arg2);
         primero=nodoTemporal;
         ultimo=nodoTemporal;
@@ -25,8 +25,8 @@ void ListaCircular::insertarNodo(string arg1,string arg2){
     }else{
         NodoCircular *nodoTemporal = new NodoCircular(arg1,arg2);
         ultimo->siguiente=nodoTemporal;
+        nodoTemporal->siguiente=primero;
         ultimo=nodoTemporal;
-        ultimo->siguiente=primero;
     }
 }
 
@@ -36,25 +36,38 @@ void ListaCircular::imprimirLista(){
         cout<<"Lista vacia";
     }else{
         NodoCircular *nodoAuxiliar = primero;
-        while (nodoAuxiliar!=NULL){
+        do{            
             cout<<"<--"<<nodoAuxiliar->getNombre()<<"-->"<<endl;
-            cout<<"<--"<<nodoAuxiliar->getRuta()<<"-->"<<endl;
             nodoAuxiliar=nodoAuxiliar->siguiente;
-        }
-        getch();        
+        } while (nodoAuxiliar!=primero);
+        getch();//espera a una entrda en consola 
     }
 }
 
 //metodo para genera archivo Dot
 void ListaCircular::generarDot(){
-    int numeroNodo = 0;
-    ofstream archivo("ArchivosDot\\ListaCircular.dot");
+    int numeroNodo = 0;//para colocacion de un indice a los nodos en .dot
+    ofstream archivo("ArchivosDot\\ListaCircular.dot");//apertura de archivo
     archivo<<"digraph ListaDoble {"<<endl;
     archivo<<"rankdir=LR;"<<endl;
     //para colocar los nodos
-    archivo<<"label = \" Lista Circular Simple\" "<<endl;
+    if(estadoLista()==true){        
+    }else{
+        NodoCircular *nodoTemporal = primero;
+        do{            
+            archivo<<"Nodo"<<numeroNodo<<"[shape=record,label=\"{<pre>|"<<
+            nodoTemporal->getNombre()<<"|<next>}\"];"<<endl;
+            nodoTemporal=nodoTemporal->siguiente;
+            numeroNodo=numeroNodo+1;
+        } while (nodoTemporal!=primero);
+    }
+    //anidacion de los nodos
+    for (int i = 0; i < numeroNodo-1; i++){
+        archivo<<"Nodo"<<i<<":next->Nodo"<<i+1<<":pre;"<<endl;
+    }
+    archivo<<"Nodo"<<numeroNodo-1<<":next->Nodo0:pre;"<<endl;
+    archivo<<"label = \" Lista Circular Simple\";"<<endl;
     archivo<<"}"<<endl;
-    archivo<<""<<endl;
     archivo.close();
 }
 
