@@ -15,14 +15,14 @@ class Ventana
 {
     private:
         int largoVentana=110, centorMenus=30;
-        string opMenu;
+        int opMenu;
 
     public:
         void gotoxy(int posx,int posy);
         Ventana();
         void CreacionMarco();
         void menu();
-        void selecionMenu(string arg);
+        void selecionMenu(int opMenu);
         ~Ventana();
 };
 

@@ -14,10 +14,9 @@ using namespace std;
 class VentanaEdicion
 {
     private:
-        char caracter;
+        char caracter,entrada;
         int fila=0,columna=0;
-
-        
+                
     public:
         void gotoxy(int posx,int posy);
         VentanaEdicion();

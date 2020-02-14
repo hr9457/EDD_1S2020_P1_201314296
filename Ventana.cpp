@@ -34,7 +34,6 @@ void Ventana::CreacionMarco(){
         }
     }
     menu();
-    getch();
 }
 
 void Ventana::menu(){
@@ -62,15 +61,19 @@ void Ventana::menu(){
     cout<<"4. SALIR";
     gotoxy(centorMenus,18);
     cout<<"INGRESE UNA OPCION DEL MENU: ";
-    cin>>opMenu;
+    opMenu=getch();
     selecionMenu(opMenu);
 }
 
 //ingreso de la opcion del menu
-void Ventana::selecionMenu(string arg){
-    if(arg=="1"){
+void Ventana::selecionMenu(int opMenu){
+    if(opMenu=1){
         system("cls");
         VentanaEdicion edit;
+        system("cls");
+        //CreacionMarco();
+    }else if(opMenu=4){
+        system("exit");
     }
 }
 

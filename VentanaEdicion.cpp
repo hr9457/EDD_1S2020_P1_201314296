@@ -15,11 +15,11 @@ VentanaEdicion::VentanaEdicion(){
 }
 
 void VentanaEdicion::escrituraPantalla(){
-    while(caracter!='27'){
-        cin>>caracter;
+    while(entrada!=27){
+        entrada=getch();
         gotoxy(fila,0);
-        cout<<caracter;
-        getch();
+        fila = fila + 1;
+        cout<<entrada;
     }
 }
 
