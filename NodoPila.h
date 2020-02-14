@@ -8,19 +8,23 @@ using namespace std;
 class NodoPila
 {
     private:
+        NodoPila *siguiente;
         string palabraBuscada;
         string palabraRemplazar;
         bool estado;
         
     public:
-        NodoPila *siguiente;
         NodoPila(string arg1);
-        void setPalabraBuscada();
+        
+        NodoPila * getSiguiente();
+        void setSiguiente(NodoPila *puntero);
+
+        void setPalabraBuscada(string arg);
         string getPalabraBuscada();
-        void setPalabraRemplazar();
+
+        void setPalabraRemplazar(string arg);
         string getPalabraRemplazar();
-        void setEstado();
-        bool getEstado();
+
         ~NodoPila();
 };
 

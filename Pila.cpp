@@ -1,9 +1,11 @@
 #include "Pila.h"
 
+//constructor
 Pila::Pila(){
     cima=NULL;
 }
 
+//estado de la pila
 bool Pila::estadoPila(){
     if(cima==NULL){
         return true;
@@ -12,36 +14,37 @@ bool Pila::estadoPila(){
     }
 }
 
+//metodo push para insertar elementos en la pila
 void Pila::Push(string arg){
     NodoPila *nodoTemporal = new NodoPila(arg);
-    if(estadoPila()==NULL)
+    if(estadoPila()==true)
     {
         cima=nodoTemporal;
     }
     else
     {
-        nodoTemporal->siguiente=cima;
+        nodoTemporal->setSiguiente(cima);
         cima=nodoTemporal;
     }
 }
 
+//metodo pop para sacar de la pila
 void Pila::Pop(){
-    if(estadoPila()==NULL){
+    if(estadoPila()==true){
         cout<<"No hay elemento en la pila"<<endl;
     }
     else
-    {
-        cima=cima->siguiente;
-    }
-    
+    {        
+    }    
 }
 
+
+//metodo para generar el archivo dot de la pila
 void Pila::generarDot(){
     int numeroNodo = 0;
     ofstream archivo("ArchivosDot\\Pila.dot");
     archivo<<"digraph Pila1{"<<endl;
     if(estadoPila()==true){
-
     }
     else
     {
@@ -49,9 +52,8 @@ void Pila::generarDot(){
         while(nodoAuxiliar!=NULL)
         {
             archivo<<"Nodo"<<numeroNodo<<
-            "[shape=box,label="<<nodoAuxiliar->getPalabraBuscada()<<
-            "];"<<endl;
-            nodoAuxiliar = nodoAuxiliar->siguiente;
+            "[shape=box,label="<<nodoAuxiliar->getPalabraBuscada()<<"];"<<endl;
+            nodoAuxiliar = nodoAuxiliar->getSiguiente();
             numeroNodo = numeroNodo + 1;
         }
         //union de los nodos
@@ -63,12 +65,13 @@ void Pila::generarDot(){
         archivo<<"}"<<endl;
         archivo.close();        
     }
-
 }
 
+//metodo para genera la imagen del Dot
 void Pila::generarImagen()
 {
     system("dot.exe -Tpng ArchivosDot\\Pila.dot -o Reportes\\Pila.png");
 }
 
+//destructor
 Pila::~Pila(){}
