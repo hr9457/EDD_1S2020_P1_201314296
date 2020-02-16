@@ -8,34 +8,10 @@
 #include <stdlib.h>
 #include <conio.h>
 
-/*
- void gotoxy(int x,int y){  
-      HANDLE hcon;  
-      hcon = GetStdHandle(STD_OUTPUT_HANDLE);  
-      COORD dwPos;  
-      dwPos.X = x;  
-      dwPos.Y= y;  
-      SetConsoleCursorPosition(hcon,dwPos);  
- } 
- */
 
 int main(){
     Ventana principal;
-    /*
-    string nombre;
-    int largoVentana=100, altoVentana=100;
-    //marcos
-    for (int i = 0; i <=largoVentana; i++)
-    {
-        gotoxy(i,0);
-        cout<<"*";
-    }    
-    gotoxy(10,10);
-    cout<<"Ingrese un nombre: ";
-    cin>>nombre;
-    gotoxy(20,20);
-    cout<<"lo nombre ingresado es: "<<nombre;
-    getch();
+    return 0;
 
     /*
     for(int i=0;i<=50;i++){
@@ -81,5 +57,5 @@ int main(){
     list.generarDot();
     list.generarImagen();
     */
-    return 0;
+    
 }

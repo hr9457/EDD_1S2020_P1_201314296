@@ -1,7 +1,6 @@
-#ifndef VENTANA_H
-#define VENTANA_H
+#ifndef VENTANAEDIT_H
+#define VENTANNAEDIT_H
 
-#include "VentanaEdit.h"
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -11,22 +10,20 @@
 
 using namespace std;
 
-class Ventana
+class VentanaEdit
 {
     private:
-        int centroMenu=45;
-        int lineaMenu=5;
-        int inKeyborad;
+        int inKeyboard,columna=1,saltoLinea=1,finalPantalla=117,altoPantalla=27;
         int ancho=GetSystemMetrics(SM_CXSCREEN);
         int alto=GetSystemMetrics(SM_CYSCREEN);
-        //VentanaEdit ventanaEdiccion;
+        char caracter;
         
     public:
-        Ventana();
+        VentanaEdit();
         void gotoxy(int posx,int posy);
-        void menu();
-        void opMenu(int op);
-        ~Ventana();
+        void ediccion();
+        void marco();
+        ~VentanaEdit();
 };
 
 
