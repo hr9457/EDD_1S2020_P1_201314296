@@ -8,12 +8,15 @@ class NodoListaDoble
 {
     private:
         char letra;
+        int posx,posy;
         
     public:
         NodoListaDoble *siguiente;
         NodoListaDoble *anterior;
-        NodoListaDoble(char arg);
+        NodoListaDoble(char arg,int posx,int posy);
         char getLetra();
+        int getPosx();
+        int getPosy();
         ~NodoListaDoble();
 };
 

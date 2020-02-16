@@ -19,7 +19,7 @@ class ListaDobleEnlazada
     public:        
         ListaDobleEnlazada();
         bool estadoLista();
-        void insertarNodo(char arg);
+        void insertarNodo(char arg,int posx,int posy);
         void eliminarNodo();
         void imprimirLista();
         void generarDot();

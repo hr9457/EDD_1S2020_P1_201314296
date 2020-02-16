@@ -1,11 +1,17 @@
 digraph ListaDobleEnlazada {
 rankdir=LR;
-Nodo0[shape=box,label="h"];
-Nodo1[shape=box,label="e"];
-Nodo2[shape=box,label="c"];
-Nodo3[shape=box,label="t"];
-Nodo4[shape=box,label="o"];
-Nodo5[shape=box,label="r"];
+Nodo0[shape=box,label="h,2"];
+Nodo1[shape=box,label="e,3"];
+Nodo2[shape=box,label="c,4"];
+Nodo3[shape=box,label="t,5"];
+Nodo4[shape=box,label="o,6"];
+Nodo5[shape=box,label="r,7"];
+Nodo6[shape=box,label=" ,8"];
+Nodo7[shape=box,label="j,9"];
+Nodo8[shape=box,label="o,10"];
+Nodo9[shape=box,label="s,11"];
+Nodo10[shape=box,label="u,12"];
+Nodo11[shape=box,label="e,13"];
 Nodo0->Nodo1;
 Nodo1->Nodo0;
 Nodo1->Nodo2;
@@ -16,6 +22,18 @@ Nodo3->Nodo4;
 Nodo4->Nodo3;
 Nodo4->Nodo5;
 Nodo5->Nodo4;
+Nodo5->Nodo6;
+Nodo6->Nodo5;
+Nodo6->Nodo7;
+Nodo7->Nodo6;
+Nodo7->Nodo8;
+Nodo8->Nodo7;
+Nodo8->Nodo9;
+Nodo9->Nodo8;
+Nodo9->Nodo10;
+Nodo10->Nodo9;
+Nodo10->Nodo11;
+Nodo11->Nodo10;
 label = " Lista doblemente enlazada" 
 }
 

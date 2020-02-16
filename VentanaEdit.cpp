@@ -55,7 +55,7 @@ void VentanaEdit::marco(){
                 cout<<caracter;
                 columna=columna+1;
                 //insertar espacio en blanco en el nodo
-                listaDoble.insertarNodo(' ');
+                listaDoble.insertarNodo(' ',columna,saltoLinea);
 
             }else if(inKeyboard==8){//para borrar
                 columna=columna-1;
@@ -81,7 +81,7 @@ void VentanaEdit::marco(){
                 cout<<caracter;
                 columna=columna+1;
                 //ingreso caractera a a la lista
-                listaDoble.insertarNodo(caracter);
+                listaDoble.insertarNodo(caracter,columna,saltoLinea);
 
             }
             

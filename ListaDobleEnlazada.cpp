@@ -17,9 +17,9 @@ bool ListaDobleEnlazada::estadoLista(){
 }
 
 //insertar al final de la lista
-void ListaDobleEnlazada::insertarNodo(char arg){
+void ListaDobleEnlazada::insertarNodo(char arg,int posx,int posy){
     //nodo temporal para guardar la informacion
-    NodoListaDoble *nodoTemporal = new NodoListaDoble(arg);
+    NodoListaDoble *nodoTemporal = new NodoListaDoble(arg,posx,posy);
     if(estadoLista()==true){
         primero = nodoTemporal;
         ultimo = nodoTemporal;
