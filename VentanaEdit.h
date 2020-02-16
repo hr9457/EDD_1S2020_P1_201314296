@@ -15,10 +15,13 @@ class VentanaEdit
 {
     private:
         int inKeyboard,columna=1,saltoLinea=1,finalPantalla=117,altoPantalla=27;
+        int inicioMenu=1;
+        int columnaBuscar=inicioMenu, altoPantallaBuscar=altoPantalla;
         int ancho=GetSystemMetrics(SM_CXSCREEN);
         int alto=GetSystemMetrics(SM_CYSCREEN);
         char caracter;
-        ListaDobleEnlazada listaDoble;
+        ListaDobleEnlazada listaDoble;//creacion objeto para la lista doble 
+        string palabraBuscar,palabraRemplazar;
         
     public:
         VentanaEdit();

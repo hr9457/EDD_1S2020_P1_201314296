@@ -1,13 +1,17 @@
 #include "ListaDobleEnlazada.h"
 
-//constructor
+
+
+//---------------------constructor
 ListaDobleEnlazada::ListaDobleEnlazada()
 {
     primero=NULL;
     ultimo=NULL;
 }
 
-//estado de la lista
+
+
+//-------------------estado de la lista
 bool ListaDobleEnlazada::estadoLista(){
     if(primero==NULL && ultimo==NULL){
         return true;
@@ -16,7 +20,9 @@ bool ListaDobleEnlazada::estadoLista(){
     }
 }
 
-//insertar al final de la lista
+
+
+//-------------------insertar al final de la lista
 void ListaDobleEnlazada::insertarNodo(char arg,int posx,int posy){
     //nodo temporal para guardar la informacion
     NodoListaDoble *nodoTemporal = new NodoListaDoble(arg,posx,posy);
@@ -30,7 +36,9 @@ void ListaDobleEnlazada::insertarNodo(char arg,int posx,int posy){
     }
 }
 
-//eliminar nodo al final
+
+
+//--------------------eliminar nodo al final
 void ListaDobleEnlazada::eliminarNodo(){
     if(estadoLista()==true){
         cout<<"LISTA VACIA"<<endl;
@@ -45,7 +53,9 @@ void ListaDobleEnlazada::eliminarNodo(){
     }
 }
 
-//impresion de la lista (pruebas)
+
+
+//-----------------------impresion de la lista (pruebas)
 void ListaDobleEnlazada::imprimirLista(){
     if(estadoLista()==true){
         cout<<"NO HAY ELEMENTOS EN LA LISTA"<<endl;
@@ -60,7 +70,39 @@ void ListaDobleEnlazada::imprimirLista(){
     }
 }
 
-//metodo para generar el grafo - Graphviz
+
+
+//------------------Metodo para buscar palabras dentro de la lista
+void ListaDobleEnlazada::buscarPalabra(string palabra1){
+    if(estadoLista()==true){
+        //lista esta vacia
+    }else{
+        NodoListaDoble *nodoTemporal=primero;//emepezar a recorrer la lista
+        string palabraEnLista;//para concatenera los caracteres
+        while (nodoTemporal!=NULL)//hasta llegar el ultimo elemento de la lista
+        {
+            if(nodoTemporal->getLetra()!=' '){//si no es un espacio en blanco
+                palabraEnLista = palabraEnLista + nodoTemporal->getLetra();//concatena
+                nodoTemporal = nodoTemporal->siguiente;//pasa a siguiente
+            }else{
+                if(palabra1==palabraEnLista){//revisa si la palabra es la que pasamos
+                    cout<<"palabra Encontrada"<<endl;//salida 
+                    break;//encuentro palabra rompo proceso
+                }else{//sino
+                    cout<<"palabra no encontrada"<<endl;
+                    palabraEnLista="";//vacia lo que tenias concatenado
+                    nodoTemporal = nodoTemporal->siguiente;//pasa a siguiente
+                }//fin else
+            }//fin else            
+        }//fin de la lista
+        
+    }//si la lista vacia esta con datos busca
+}//fin del metodo
+
+
+
+
+//----------------metodo para generar el grafo - Graphviz
 void ListaDobleEnlazada::generarDot(){
     int numeroNodo = 0;
     ofstream archivo("ArchivosDot\\ListaDobleEnlazada.dot");//escribir un archivo
@@ -89,10 +131,18 @@ void ListaDobleEnlazada::generarDot(){
     archivo.close();
 }
 
-//metodo para generar imagen del grafo
+
+
+
+
+
+//----------------------metodo para generar imagen del grafo
 void ListaDobleEnlazada::generarImagen(){
     system("dot.exe -Tpng ArchivosDot\\ListaDobleEnlazada.dot -o Reportes\\ListaDobleEnlzada.png");
 }
 
-//destructor
+
+
+
+//-------------------------destructor
 ListaDobleEnlazada::~ListaDobleEnlazada(){}

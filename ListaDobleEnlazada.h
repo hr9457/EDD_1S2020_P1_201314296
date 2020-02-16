@@ -22,6 +22,7 @@ class ListaDobleEnlazada
         void insertarNodo(char arg,int posx,int posy);
         void eliminarNodo();
         void imprimirLista();
+        void buscarPalabra(string palabra1);
         void generarDot();
         void generarImagen();
         ~ListaDobleEnlazada();

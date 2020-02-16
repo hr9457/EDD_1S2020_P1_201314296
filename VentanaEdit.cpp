@@ -28,16 +28,16 @@ void VentanaEdit::marco(){
     }
 
     //------MENU EDICCION-------
-    gotoxy(columna,altoPantalla+1);
+    gotoxy(inicioMenu,altoPantalla+1);
     cout<<"Esc(Salir)";
 
-    gotoxy(columna+14,altoPantalla+1);
+    gotoxy(inicioMenu+12,altoPantalla+1);
     cout<<"^w(Buscar y Remplazar)";
 
-    gotoxy(columna+40,altoPantalla+1);
+    gotoxy(inicioMenu+36,altoPantalla+1);
     cout<<"^c(Reportes)";
 
-    gotoxy(columna+55,altoPantalla+1);
+    gotoxy(inicioMenu+50,altoPantalla+1);
     cout<<"^s(Guardar)";
     gotoxy(1,1);//posicion cursos 
 }
@@ -50,12 +50,14 @@ void VentanaEdit::marco(){
 
         if(columna<finalPantalla && saltoLinea<altoPantalla){
 
+
             if(inKeyboard==32){//para barra espaciadora
                 gotoxy(columna,saltoLinea);
                 cout<<caracter;
                 columna=columna+1;
                 //insertar espacio en blanco en el nodo
                 listaDoble.insertarNodo(' ',columna,saltoLinea);
+
 
             }else if(inKeyboard==8){//para borrar
                 columna=columna-1;
@@ -71,10 +73,30 @@ void VentanaEdit::marco(){
                 columna=1;
                 gotoxy(columna,saltoLinea);
 
+
             }else if(inKeyboard==3){//para Ctrl+C
                 //reporte de la lista doblemente enlazada
                 listaDoble.generarDot();
                 listaDoble.generarImagen();
+
+
+            }else if(inKeyboard==23){//para Ctrl+w
+                //para busqueda de palabras
+                gotoxy(columnaBuscar+65,altoPantallaBuscar+1);
+                cout<<"Buscar y Remplazar: ";
+                //gotoxy(columna+85,altoPantalla+1);
+                //entrada del teclado del usuario                
+                do{
+                    caracter=getch();
+                    cout<<caracter;
+                    if(caracter!=59){
+                        palabraBuscar=palabraBuscar+caracter;
+                    }else{
+                        palabraRemplazar=palabraRemplazar+caracter;
+                    }                    
+                }while(caracter!=13);
+                gotoxy(columna,saltoLinea);
+
 
             }else{//para escribir en el editor
                 gotoxy(columna,saltoLinea);

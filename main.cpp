@@ -10,7 +10,21 @@
 
 
 int main(){
-    Ventana principal;
+    //Ventana principal;
+    ListaDobleEnlazada list;
+    list.insertarNodo('h',1,1);
+    list.insertarNodo('e',1,1);
+    list.insertarNodo('c',1,1);
+    list.insertarNodo('t',1,1);
+    list.insertarNodo('o',1,1);
+    list.insertarNodo('r',1,1);
+    list.insertarNodo(' ',1,1);
+    list.insertarNodo('j',1,1);
+    list.insertarNodo('o',1,1);
+    list.insertarNodo(' ',1,1);
+    list.imprimirLista();
+    list.buscarPalabra("hector");
+    getch();
     return 0;
 
     /*
