@@ -1,6 +1,7 @@
 #ifndef VENTANAEDIT_H
 #define VENTANNAEDIT_H
 
+#include "ListaDobleEnlazada.h"
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -17,6 +18,7 @@ class VentanaEdit
         int ancho=GetSystemMetrics(SM_CXSCREEN);
         int alto=GetSystemMetrics(SM_CYSCREEN);
         char caracter;
+        ListaDobleEnlazada listaDoble;
         
     public:
         VentanaEdit();

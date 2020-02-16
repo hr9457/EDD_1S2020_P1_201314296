@@ -1,6 +1,7 @@
 #include "VentanaEdit.h"
 
 VentanaEdit::VentanaEdit(){
+    
     marco();
     ediccion();
 }
@@ -44,31 +45,48 @@ void VentanaEdit::marco(){
  void VentanaEdit::ediccion(){
      do
      {
+        //entrada del teclado del usuario
+        inKeyboard=caracter=getch();
+
         if(columna<finalPantalla && saltoLinea<altoPantalla){
 
-            //entrada del teclado del usuario
-            inKeyboard=caracter=getch();
-
-            if(inKeyboard==32){
+            if(inKeyboard==32){//para barra espaciadora
                 gotoxy(columna,saltoLinea);
                 cout<<caracter;
                 columna=columna+1;
-            }else if(inKeyboard==8){
+                //insertar espacio en blanco en el nodo
+                listaDoble.insertarNodo(' ');
+
+            }else if(inKeyboard==8){//para borrar
                 columna=columna-1;
                 gotoxy(columna,saltoLinea);
                 cout<<" ";
-                gotoxy(columna,saltoLinea);            
-            }else if(inKeyboard==13){
+                gotoxy(columna,saltoLinea);
+                //eliminando nodo en la lista
+                listaDoble.eliminarNodo();
+                      
+
+            }else if(inKeyboard==13){//para salto de linea
                 saltoLinea=saltoLinea+1;
                 columna=1;
                 gotoxy(columna,saltoLinea);
-            }else{
+
+            }else if(inKeyboard==3){//para Ctrl+C
+                //reporte de la lista doblemente enlazada
+                listaDoble.generarDot();
+                listaDoble.generarImagen();
+
+            }else{//para escribir en el editor
                 gotoxy(columna,saltoLinea);
                 cout<<caracter;
                 columna=columna+1;
+                //ingreso caractera a a la lista
+                listaDoble.insertarNodo(caracter);
+
             }
             
-        }//fin del limites del marco        
+        }//fin del limites del marco 
+
 
      } while (inKeyboard!=27);     
  }

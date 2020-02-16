@@ -65,13 +65,14 @@ void ListaDobleEnlazada::generarDot(){
     int numeroNodo = 0;
     ofstream archivo("ArchivosDot\\ListaDobleEnlazada.dot");//escribir un archivo
     archivo<<"digraph ListaDobleEnlazada {"<<endl;
+    archivo<<"rankdir=LR;"<<endl;
     //para colocar los nodos
     if(estadoLista()==true){        
     }else{        
         NodoListaDoble *nodoTemporal = primero;
         while(nodoTemporal!=NULL){
-            archivo<<"Nodo"<<numeroNodo<<"[shape=box,label="<<
-            nodoTemporal->getLetra()<<"];"<<endl;
+            archivo<<"Nodo"<<numeroNodo<<"[shape=box,label=\""<<
+            nodoTemporal->getLetra()<<"\"];"<<endl;
             nodoTemporal = nodoTemporal->siguiente;
             numeroNodo = numeroNodo + 1;
         }
