@@ -9,17 +9,37 @@ NodoListaDoble::NodoListaDoble(char arg,int posx,int posy){
     anterior = NULL;
 }
 
+
+
 //retorno de valor
 char NodoListaDoble::getLetra(){
     return letra;
 }
 
+void NodoListaDoble::setLetra(char arg){
+    letra=arg;
+}
+
+
+
 int NodoListaDoble::getPosx(){
     return posx;
 }
 
+void NodoListaDoble::setPosx(int numero)
+{
+    posx=numero;
+}
+
+
+
 int NodoListaDoble::getPosy(){
     return posy;
+}
+
+void NodoListaDoble::setPosy(int numero)
+{
+    posy=numero;
 }
 
 //destructor

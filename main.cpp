@@ -21,9 +21,19 @@ int main(){
     list.insertarNodo(' ',1,1);
     list.insertarNodo('j',1,1);
     list.insertarNodo('o',1,1);
+    list.insertarNodo('s',1,1);
+    list.insertarNodo('u',1,1);
+    list.insertarNodo('e',1,1);
     list.insertarNodo(' ',1,1);
+    list.insertarNodo('s',1,1);
+    list.insertarNodo('i',1,1);
+    list.insertarNodo('s',1,1);
     list.imprimirLista();
-    list.buscarPalabra("hector");
+    list.buscarPalabra("sis","sas");
+    getch();
+    list.imprimirLista();
+    list.generarDot();
+    list.generarImagen();
     getch();
     return 0;
 

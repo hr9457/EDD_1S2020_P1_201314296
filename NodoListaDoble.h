@@ -15,8 +15,11 @@ class NodoListaDoble
         NodoListaDoble *anterior;
         NodoListaDoble(char arg,int posx,int posy);
         char getLetra();
+        void setLetra(char arg);
         int getPosx();
+        void setPosx(int numero);
         int getPosy();
+        void setPosy(int numero);
         ~NodoListaDoble();
 };
 

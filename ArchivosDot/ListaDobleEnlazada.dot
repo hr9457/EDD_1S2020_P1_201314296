@@ -1,17 +1,21 @@
 digraph ListaDobleEnlazada {
 rankdir=LR;
-Nodo0[shape=box,label="h,2"];
-Nodo1[shape=box,label="e,3"];
-Nodo2[shape=box,label="c,4"];
-Nodo3[shape=box,label="t,5"];
-Nodo4[shape=box,label="o,6"];
-Nodo5[shape=box,label="r,7"];
-Nodo6[shape=box,label=" ,8"];
-Nodo7[shape=box,label="j,9"];
-Nodo8[shape=box,label="o,10"];
-Nodo9[shape=box,label="s,11"];
-Nodo10[shape=box,label="u,12"];
-Nodo11[shape=box,label="e,13"];
+Nodo0[shape=box,label="h"];
+Nodo1[shape=box,label="e"];
+Nodo2[shape=box,label="c"];
+Nodo3[shape=box,label="t"];
+Nodo4[shape=box,label="o"];
+Nodo5[shape=box,label="r"];
+Nodo6[shape=box,label=" "];
+Nodo7[shape=box,label="j"];
+Nodo8[shape=box,label="o"];
+Nodo9[shape=box,label="s"];
+Nodo10[shape=box,label="u"];
+Nodo11[shape=box,label="e"];
+Nodo12[shape=box,label=" "];
+Nodo13[shape=box,label="s"];
+Nodo14[shape=box,label="i"];
+Nodo15[shape=box,label="s"];
 Nodo0->Nodo1;
 Nodo1->Nodo0;
 Nodo1->Nodo2;
@@ -34,6 +38,14 @@ Nodo9->Nodo10;
 Nodo10->Nodo9;
 Nodo10->Nodo11;
 Nodo11->Nodo10;
+Nodo11->Nodo12;
+Nodo12->Nodo11;
+Nodo12->Nodo13;
+Nodo13->Nodo12;
+Nodo13->Nodo14;
+Nodo14->Nodo13;
+Nodo14->Nodo15;
+Nodo15->Nodo14;
 label = " Lista doblemente enlazada" 
 }
 

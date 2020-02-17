@@ -73,7 +73,7 @@ void ListaDobleEnlazada::imprimirLista(){
 
 
 //------------------Metodo para buscar palabras dentro de la lista
-void ListaDobleEnlazada::buscarPalabra(string palabra1){
+void ListaDobleEnlazada::buscarPalabra(string palabra1, string palabra2){
     if(estadoLista()==true){
         //lista esta vacia
     }else{
@@ -82,12 +82,59 @@ void ListaDobleEnlazada::buscarPalabra(string palabra1){
         while (nodoTemporal!=NULL)//hasta llegar el ultimo elemento de la lista
         {
             if(nodoTemporal->getLetra()!=' '){//si no es un espacio en blanco
+
                 palabraEnLista = palabraEnLista + nodoTemporal->getLetra();//concatena
                 nodoTemporal = nodoTemporal->siguiente;//pasa a siguiente
+
             }else{
+
                 if(palabra1==palabraEnLista){//revisa si la palabra es la que pasamos
+
                     cout<<"palabra Encontrada"<<endl;//salida 
+                    cout<<palabra1.size()<<endl;
+
+                    //posicion en la lista donde se enentra el espacio en blanco
+                    NodoListaDoble *espacioBlanco = nodoTemporal;
+
+                    //regreso a la primero letra de la palabra
+                    for(int i=0;i<palabra1.size();i++){
+                        nodoTemporal = nodoTemporal->anterior;
+                    }
+
+                    cout<<"letra inicio: "<<nodoTemporal->getLetra()<<endl;
+
+                    //remplazo de caracteres en la lista
+                    int inicioPalabra2 = 0;
+
+                    do{
+                        //si encuentra el espacio en blando en la lista
+                        if(nodoTemporal->siguiente != espacioBlanco){
+                            cout<<"dato: "<<nodoTemporal->getLetra()<<endl;
+                            getch();
+                            nodoTemporal->setLetra(palabra2[inicioPalabra2]);
+                            inicioPalabra2++;
+                            nodoTemporal=nodoTemporal->siguiente;
+                        }else{
+                            
+                            cout<<"dato: "<<nodoTemporal->getLetra()<<endl;
+                            getch();
+                            nodoTemporal->setLetra(palabra2[inicioPalabra2]);
+                            int posicionX = nodoTemporal->getPosx();
+                            int posicionY = nodoTemporal->getPosy();
+                            NodoListaDoble *agregar = new NodoListaDoble(palabra2[inicioPalabra2+1],posicionX+1,posicionY);
+                            nodoTemporal->siguiente=agregar;
+                            agregar->anterior=nodoTemporal;
+                            agregar->siguiente=espacioBlanco;
+                            espacioBlanco->anterior=agregar;
+                            inicioPalabra2++;
+                            nodoTemporal=nodoTemporal->siguiente;
+
+                        }                       
+                    }while(inicioPalabra2<palabra2.size()-1);
+
                     break;//encuentro palabra rompo proceso
+
+
                 }else{//sino
                     cout<<"palabra no encontrada"<<endl;
                     palabraEnLista="";//vacia lo que tenias concatenado
