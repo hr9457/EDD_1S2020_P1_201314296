@@ -91,10 +91,19 @@ void VentanaEdit::marco(){
                     cout<<caracter;
                     if(caracter!=59){
                         palabraBuscar=palabraBuscar+caracter;
-                    }else{
-                        palabraRemplazar=palabraRemplazar+caracter;
                     }                    
+                }while(caracter!=59);
+
+                do{
+                    caracter=getch();
+                    cout<<caracter;
+                    if(caracter!=13){
+                        palabraRemplazar=palabraRemplazar+caracter;
+                    }
                 }while(caracter!=13);
+
+               //llamando al metodo para buscar y remplazar en la lista
+                listaDoble.buscarPalabra(palabraBuscar,palabraRemplazar);
                 gotoxy(columna,saltoLinea);
 
 

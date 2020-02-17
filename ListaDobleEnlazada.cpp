@@ -90,8 +90,8 @@ void ListaDobleEnlazada::buscarPalabra(string palabra1, string palabra2){
 
                 if(palabra1==palabraEnLista){//revisa si la palabra es la que pasamos
 
-                    cout<<"palabra Encontrada"<<endl;//salida 
-                    cout<<palabra1.size()<<endl;
+                    //cout<<"palabra Encontrada"<<endl;//salida 
+                    //cout<<palabra1.size()<<endl;
 
                     //posicion en la lista donde se enentra el espacio en blanco
                     NodoListaDoble *espacioBlanco = nodoTemporal;
@@ -101,7 +101,7 @@ void ListaDobleEnlazada::buscarPalabra(string palabra1, string palabra2){
                         nodoTemporal = nodoTemporal->anterior;
                     }
 
-                    cout<<"letra inicio: "<<nodoTemporal->getLetra()<<endl;
+                    //cout<<"letra inicio: "<<nodoTemporal->getLetra()<<endl;
 
                     //remplazo de caracteres en la lista
                     int inicioPalabra2 = 0;
@@ -109,15 +109,15 @@ void ListaDobleEnlazada::buscarPalabra(string palabra1, string palabra2){
                     do{
                         //si encuentra el espacio en blando en la lista
                         if(nodoTemporal->siguiente != espacioBlanco){
-                            cout<<"dato: "<<nodoTemporal->getLetra()<<endl;
-                            getch();
+                            //cout<<"dato: "<<nodoTemporal->getLetra()<<endl;
+                            //getch();
                             nodoTemporal->setLetra(palabra2[inicioPalabra2]);
                             inicioPalabra2++;
                             nodoTemporal=nodoTemporal->siguiente;
                         }else{
                             
-                            cout<<"dato: "<<nodoTemporal->getLetra()<<endl;
-                            getch();
+                            //cout<<"dato: "<<nodoTemporal->getLetra()<<endl;
+                            //getch();
                             nodoTemporal->setLetra(palabra2[inicioPalabra2]);
                             int posicionX = nodoTemporal->getPosx();
                             int posicionY = nodoTemporal->getPosy();
@@ -136,7 +136,7 @@ void ListaDobleEnlazada::buscarPalabra(string palabra1, string palabra2){
 
 
                 }else{//sino
-                    cout<<"palabra no encontrada"<<endl;
+                    //cout<<"palabra no encontrada"<<endl;
                     palabraEnLista="";//vacia lo que tenias concatenado
                     nodoTemporal = nodoTemporal->siguiente;//pasa a siguiente
                 }//fin else

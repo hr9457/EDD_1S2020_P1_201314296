@@ -10,7 +10,9 @@
 
 
 int main(){
-    //Ventana principal;
+    Ventana principal;
+    
+    /*
     ListaDobleEnlazada list;
     list.insertarNodo('h',1,1);
     list.insertarNodo('e',1,1);
@@ -21,15 +23,13 @@ int main(){
     list.insertarNodo(' ',1,1);
     list.insertarNodo('j',1,1);
     list.insertarNodo('o',1,1);
-    list.insertarNodo('s',1,1);
-    list.insertarNodo('u',1,1);
-    list.insertarNodo('e',1,1);
     list.insertarNodo(' ',1,1);
     list.insertarNodo('s',1,1);
     list.insertarNodo('i',1,1);
     list.insertarNodo('s',1,1);
+    list.insertarNodo(' ',1,1);
     list.imprimirLista();
-    list.buscarPalabra("sis","sas");
+    list.buscarPalabra("jo","josue");
     getch();
     list.imprimirLista();
     list.generarDot();
