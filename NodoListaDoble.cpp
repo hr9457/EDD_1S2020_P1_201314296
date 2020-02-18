@@ -28,7 +28,7 @@ int NodoListaDoble::getPosx(){
 
 void NodoListaDoble::setPosx(int numero)
 {
-    posx=numero;
+    this->posx=numero;
 }
 
 

@@ -10,6 +10,16 @@ ListaDobleEnlazada::ListaDobleEnlazada()
 }
 
 
+//--------------------------Retorno del primer nodo
+NodoListaDoble * ListaDobleEnlazada::getPrimero(){
+    return primero;
+}
+
+//------------------------Retorna el ultmo nodo
+NodoListaDoble * ListaDobleEnlazada::getUltimo(){
+    return ultimo;
+}
+
 
 //-------------------estado de la lista
 bool ListaDobleEnlazada::estadoLista(){
@@ -95,6 +105,8 @@ void ListaDobleEnlazada::buscarPalabra(string palabra1, string palabra2){
 
                     //posicion en la lista donde se enentra el espacio en blanco
                     NodoListaDoble *espacioBlanco = nodoTemporal;
+                    int posxTemporal=0;
+                    int posyTemporal=0;
 
                     //regreso a la primero letra de la palabra
                     for(int i=0;i<palabra1.size();i++){
@@ -126,11 +138,29 @@ void ListaDobleEnlazada::buscarPalabra(string palabra1, string palabra2){
                             agregar->anterior=nodoTemporal;
                             agregar->siguiente=espacioBlanco;
                             espacioBlanco->anterior=agregar;
+                            posxTemporal=agregar->getPosx();//guarde la ultima posicion 
+                            posyTemporal=agregar->getPosy();
                             inicioPalabra2++;
                             nodoTemporal=nodoTemporal->siguiente;
 
                         }                       
                     }while(inicioPalabra2<palabra2.size()-1);
+
+                    //cout<<posxTemporal<<endl;
+                    //cout<<posyTemporal<<endl;
+                    //mover los nodos en la posicion X a la hora de gregar mas nodos
+
+                    posxTemporal=posxTemporal+1;  
+                    while (espacioBlanco!=NULL)
+                    {
+                        if(posyTemporal!=espacioBlanco->getPosy()){
+
+                        }else{
+                            espacioBlanco->setPosx(posxTemporal);
+                            posxTemporal=posxTemporal+1;
+                            espacioBlanco=espacioBlanco->siguiente;
+                        }                        
+                    }                    
 
                     break;//encuentro palabra rompo proceso
 
@@ -161,7 +191,8 @@ void ListaDobleEnlazada::generarDot(){
         NodoListaDoble *nodoTemporal = primero;
         while(nodoTemporal!=NULL){
             archivo<<"Nodo"<<numeroNodo<<"[shape=box,label=\""<<
-            nodoTemporal->getLetra()<<"\"];"<<endl;
+            nodoTemporal->getLetra()<<" \n"<<nodoTemporal->getPosx()<<","<<
+            nodoTemporal->getPosy()<<"\"];"<<endl;
             nodoTemporal = nodoTemporal->siguiente;
             numeroNodo = numeroNodo + 1;
         }

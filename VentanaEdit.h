@@ -2,6 +2,7 @@
 #define VENTANNAEDIT_H
 
 #include "ListaDobleEnlazada.h"
+#include "NodoListaDoble.h"
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -28,6 +29,7 @@ class VentanaEdit
         void gotoxy(int posx,int posy);
         void ediccion();
         void marco();
+        void Repintar();
         ~VentanaEdit();
 };
 

@@ -12,24 +12,26 @@
 int main(){
     Ventana principal;
     
+    
     /*
     ListaDobleEnlazada list;
-    list.insertarNodo('h',1,1);
-    list.insertarNodo('e',1,1);
-    list.insertarNodo('c',1,1);
-    list.insertarNodo('t',1,1);
-    list.insertarNodo('o',1,1);
-    list.insertarNodo('r',1,1);
-    list.insertarNodo(' ',1,1);
-    list.insertarNodo('j',1,1);
-    list.insertarNodo('o',1,1);
-    list.insertarNodo(' ',1,1);
-    list.insertarNodo('s',1,1);
-    list.insertarNodo('i',1,1);
-    list.insertarNodo('s',1,1);
-    list.insertarNodo(' ',1,1);
+    list.insertarNodo('h',1,1);//j
+    list.insertarNodo('h',2,1);//o
+    //s
+    //u
+    //e
+    list.insertarNodo(' ',3,1);//
+    list.insertarNodo('j',4,1);
+    list.insertarNodo('o',5,1);
+    list.insertarNodo(' ',6,1);
+    list.insertarNodo('h',1,2);
+    list.insertarNodo('o',2,2);
+    list.insertarNodo(' ',3,2);
+    list.insertarNodo('q',4,2);
+    list.insertarNodo('u',5,2);
+    list.insertarNodo(' ',6,2);
     list.imprimirLista();
-    list.buscarPalabra("jo","josue");
+    list.buscarPalabra("hh","josue");
     getch();
     list.imprimirLista();
     list.generarDot();

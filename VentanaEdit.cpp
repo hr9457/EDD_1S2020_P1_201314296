@@ -1,10 +1,14 @@
 #include "VentanaEdit.h"
 
+
+//----------Contructor
 VentanaEdit::VentanaEdit(){
     
     marco();
     ediccion();
 }
+
+
 
 //funcion de pintado en el  consola 
 void VentanaEdit::gotoxy(int posx,int posy){  
@@ -16,6 +20,9 @@ void VentanaEdit::gotoxy(int posx,int posy){
       SetConsoleCursorPosition(hcon,dwPos);  
  }
 
+
+
+//-------------------------Dibuja el marco y el menu del la ediccion
 void VentanaEdit::marco(){
     for(int ColumnaMarco=0;ColumnaMarco<=finalPantalla;ColumnaMarco++){
         gotoxy(ColumnaMarco,0);
@@ -41,7 +48,33 @@ void VentanaEdit::marco(){
     cout<<"^s(Guardar)";
     gotoxy(1,1);//posicion cursos 
 }
- 
+
+
+
+//-----------------Repintado de pantalla
+void VentanaEdit::Repintar(){
+    system("cls");
+    marco();
+    //recorrido de la lista
+    NodoListaDoble *elPrimero = listaDoble.getPrimero();
+    
+    while (elPrimero!=NULL)
+    {
+        gotoxy(elPrimero->getPosx(),elPrimero->getPosy());
+        cout<<elPrimero->getLetra();
+        elPrimero=elPrimero->siguiente;
+
+    }
+    NodoListaDoble *elUltimo = listaDoble.getUltimo();
+    columna = elUltimo->getPosx()+1;
+    saltoLinea = elUltimo->getPosy();
+    gotoxy(columna,saltoLinea);
+        
+}
+
+
+
+//----------funcionalidad para la ediccion de la pantalla 
  void VentanaEdit::ediccion(){
      do
      {
@@ -69,9 +102,12 @@ void VentanaEdit::marco(){
                       
 
             }else if(inKeyboard==13){//para salto de linea
+                //columna=columna+1;
+                listaDoble.insertarNodo(' ',columna+1,saltoLinea);
                 saltoLinea=saltoLinea+1;
                 columna=1;
                 gotoxy(columna,saltoLinea);
+
 
 
             }else if(inKeyboard==3){//para Ctrl+C
@@ -80,12 +116,14 @@ void VentanaEdit::marco(){
                 listaDoble.generarImagen();
 
 
+
             }else if(inKeyboard==23){//para Ctrl+w
                 //para busqueda de palabras
                 gotoxy(columnaBuscar+65,altoPantallaBuscar+1);
                 cout<<"Buscar y Remplazar: ";
                 //gotoxy(columna+85,altoPantalla+1);
-                //entrada del teclado del usuario                
+                //entrada del teclado del usuario   
+                            
                 do{
                     caracter=getch();
                     cout<<caracter;
@@ -104,7 +142,9 @@ void VentanaEdit::marco(){
 
                //llamando al metodo para buscar y remplazar en la lista
                 listaDoble.buscarPalabra(palabraBuscar,palabraRemplazar);
-                gotoxy(columna,saltoLinea);
+                //palabraBuscar=" ";
+                //palabraRemplazar=" ";
+                Repintar();
 
 
             }else{//para escribir en el editor
@@ -122,4 +162,7 @@ void VentanaEdit::marco(){
      } while (inKeyboard!=27);     
  }
 
+
+
+//--------------Destructor
 VentanaEdit::~VentanaEdit(){}
