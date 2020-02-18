@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <fstream>
 
 using namespace std;
 
@@ -22,7 +23,7 @@ class VentanaEdit
         int alto=GetSystemMetrics(SM_CYSCREEN);
         char caracter;
         ListaDobleEnlazada listaDoble;//creacion objeto para la lista doble 
-        string palabraBuscar,palabraRemplazar;
+        string palabraBuscar,palabraRemplazar,rutaArchivo;
         
     public:
         VentanaEdit();
@@ -30,6 +31,7 @@ class VentanaEdit
         void ediccion();
         void marco();
         void Repintar();
+        void guardar(string ruta);
         ~VentanaEdit();
 };
 

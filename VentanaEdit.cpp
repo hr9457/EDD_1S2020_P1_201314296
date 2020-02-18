@@ -2,8 +2,7 @@
 
 
 //----------Contructor
-VentanaEdit::VentanaEdit(){
-    
+VentanaEdit::VentanaEdit(){    
     marco();
     ediccion();
 }
@@ -74,6 +73,27 @@ void VentanaEdit::Repintar(){
 
 
 
+//-------------------Metodo para crear un archivo
+void VentanaEdit::guardar(string ruta){
+    int salto;
+    ofstream archivo("Save\\"+ruta+".txt");
+    NodoListaDoble *inicio = listaDoble.getPrimero();
+    salto = inicio->getPosy();
+    while(inicio!=NULL){
+        if(inicio->getLetra()!='\n'){
+            archivo<<inicio->getLetra();
+            inicio=inicio->siguiente;
+        }else{
+            archivo<<endl;
+            inicio=inicio->siguiente;
+        }
+        
+    }
+    archivo.close(); 
+}
+
+
+
 //----------funcionalidad para la ediccion de la pantalla 
  void VentanaEdit::ediccion(){
      do
@@ -103,12 +123,27 @@ void VentanaEdit::Repintar(){
 
             }else if(inKeyboard==13){//para salto de linea
                 //columna=columna+1;
-                listaDoble.insertarNodo(' ',columna+1,saltoLinea);
+                listaDoble.insertarNodo('\n',columna+1,saltoLinea);
                 saltoLinea=saltoLinea+1;
                 columna=1;
                 gotoxy(columna,saltoLinea);
 
 
+            }else if(inKeyboard==19){//para Ctrl+S
+                //para busqueda de palabras
+                gotoxy(columnaBuscar+65,altoPantallaBuscar+1);
+                cout<<"Nombre: ";
+                 do{
+                    caracter=getch();
+                    cout<<caracter;
+                    if(caracter!=13){
+                        rutaArchivo=rutaArchivo+caracter;
+                    }    
+                }while(caracter!=13);
+                guardar(rutaArchivo);
+                Repintar();
+
+            
 
             }else if(inKeyboard==3){//para Ctrl+C
                 //reporte de la lista doblemente enlazada
@@ -145,6 +180,8 @@ void VentanaEdit::Repintar(){
                 //palabraBuscar=" ";
                 //palabraRemplazar=" ";
                 Repintar();
+                this->palabraBuscar=" ";
+                this->palabraRemplazar=" ";
 
 
             }else{//para escribir en el editor
