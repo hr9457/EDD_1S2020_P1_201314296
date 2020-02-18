@@ -28,6 +28,22 @@ void Ventana::gotoxy(int posx,int posy){
         //cout<<"ancho: "<<ancho<<" alto: "<<alto;
         lineaMenu=5;
         gotoxy(centroMenu,lineaMenu);
+        cout<<"UNIVERSIDAD DE SAN CARLOS DE GUATEMALA";
+        lineaMenu=lineaMenu+1;
+        gotoxy(centroMenu,lineaMenu);
+        cout<<"FACULTAD DE INGENIERIA";
+        lineaMenu=lineaMenu+1;
+        gotoxy(centroMenu,lineaMenu);
+        cout<<"PRACTICA 1";
+        lineaMenu=lineaMenu+1;
+        gotoxy(centroMenu,lineaMenu);
+        cout<<"HECTOR JOSUE OROZCO SALAZAR";
+        lineaMenu=lineaMenu+1;
+        gotoxy(centroMenu,lineaMenu);
+        cout<<"201314296";
+        lineaMenu=lineaMenu+5;
+
+        gotoxy(centroMenu,lineaMenu);
         cout<<"MENU";
         lineaMenu=lineaMenu+1;
         gotoxy(centroMenu,lineaMenu);
