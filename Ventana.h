@@ -19,6 +19,8 @@ class Ventana
         int inKeyborad;
         int ancho=GetSystemMetrics(SM_CXSCREEN);
         int alto=GetSystemMetrics(SM_CYSCREEN);
+        char caracter;
+        string rutaArchivo;
         //VentanaEdit ventanaEdiccion;
         
     public:

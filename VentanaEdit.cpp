@@ -7,6 +7,15 @@ VentanaEdit::VentanaEdit(){
     ediccion();
 }
 
+VentanaEdit::VentanaEdit(string ruta){
+    lercuturaArchivo(ruta);
+    //system("cls");
+    marco();
+    Repintar();
+    ediccion();
+    
+}
+
 
 
 //funcion de pintado en el  consola 
@@ -19,6 +28,32 @@ void VentanaEdit::gotoxy(int posx,int posy){
       SetConsoleCursorPosition(hcon,dwPos);  
  }
 
+
+//------------------------PARA LEER ARCHVIO CARACTER POR CARACTER
+void VentanaEdit::lercuturaArchivo(string ruta){
+    int posxArchivo=1,posyArchivo=1;
+    ifstream fichero;
+    fichero.open(ruta.c_str());
+    if(!fichero.fail()){
+        fichero.get(caracterArchivo);
+        while (!fichero.eof())
+        {
+            if(caracterArchivo!='\n'){
+                cout<<caracterArchivo;
+                listaDoble.insertarNodo(caracterArchivo,posxArchivo,posyArchivo);
+                fichero.get(caracterArchivo);
+                posxArchivo++;
+            }else{
+                cout<<caracterArchivo;
+                posxArchivo=1;
+                posyArchivo++;
+                listaDoble.insertarNodo(caracterArchivo,posxArchivo,posyArchivo);
+                fichero.get(caracterArchivo);
+            }            
+        }        
+    }
+    fichero.close();
+}
 
 
 //-------------------------Dibuja el marco y el menu del la ediccion

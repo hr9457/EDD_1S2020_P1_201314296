@@ -24,9 +24,13 @@ class VentanaEdit
         char caracter;
         ListaDobleEnlazada listaDoble;//creacion objeto para la lista doble 
         string palabraBuscar,palabraRemplazar,rutaArchivo;
+        string rutaDeApertura;
+        char caracterArchivo;
         
     public:
         VentanaEdit();
+        VentanaEdit(string ruta);
+        void lercuturaArchivo(string arg);
         void gotoxy(int posx,int posy);
         void ediccion();
         void marco();

@@ -65,7 +65,21 @@ void Ventana::gotoxy(int posx,int posy){
      if(op==49){
          system("cls");
          VentanaEdit ventanaEdiccion;
+     }else if(op==50){
+         system("cls");
+         gotoxy(10,10);
+         cout<<"Ruta Archivo: ";
+         do{
+             caracter = getch();
+             cout<<caracter;
+             if(caracter!=13){
+                 rutaArchivo = rutaArchivo + caracter;
+             }             
+         }while(caracter!=13);
+         //apertura de la ventana
+         VentanaEdit ventanaEdiccion2(rutaArchivo);
      }else{
+
      }
 
  }

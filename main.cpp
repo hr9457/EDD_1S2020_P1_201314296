@@ -11,8 +11,6 @@
 
 int main(){
     Ventana principal;
-    
-    
     /*
     ListaDobleEnlazada list;
     list.insertarNodo('h',1,1);//j
