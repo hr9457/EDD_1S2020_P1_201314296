@@ -79,7 +79,6 @@ void Ventana::gotoxy(int posx,int posy){
          //apertura de la ventana
          VentanaEdit ventanaEdiccion2(rutaArchivo);
      }else{
-
      }
 
  }
