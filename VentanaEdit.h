@@ -30,6 +30,7 @@ class VentanaEdit
     public:
         VentanaEdit();
         VentanaEdit(string ruta);
+        bool existenciaArchivo(char *arg);
         void lercuturaArchivo(string arg);
         void gotoxy(int posx,int posy);
         void ediccion();

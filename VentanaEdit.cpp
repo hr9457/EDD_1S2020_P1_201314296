@@ -29,6 +29,19 @@ void VentanaEdit::gotoxy(int posx,int posy){
  }
 
 
+///------------------------PARA VERIFICAR LA EXISTENCIA DE UN ARCHIVO
+bool VentanaEdit::existenciaArchivo(char *arg){
+    bool resultado = false;
+    FILE *file;
+    file = fopen(arg,"rb");
+    if(file!=NULL){
+        resultado = true;
+        fclose(file);
+    }
+    return resultado;
+    
+}
+
 //------------------------PARA LEER ARCHVIO CARACTER POR CARACTER
 void VentanaEdit::lercuturaArchivo(string ruta){
     int posxArchivo=1,posyArchivo=1;
@@ -50,9 +63,9 @@ void VentanaEdit::lercuturaArchivo(string ruta){
                 listaDoble.insertarNodo(caracterArchivo,posxArchivo,posyArchivo);
                 fichero.get(caracterArchivo);
             }            
-        }        
-    }
-    fichero.close();
+        }  
+        fichero.close();      
+    }    
 }
 
 

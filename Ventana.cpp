@@ -53,12 +53,15 @@ void Ventana::gotoxy(int posx,int posy){
         cout<<"2. Abrir Archivo";
         lineaMenu=lineaMenu+1;
         gotoxy(centroMenu,lineaMenu);
-        cout<<"3. Salir";
+        cout<<"3. Archivos Recientes";
+        lineaMenu=lineaMenu+1;
+        gotoxy(centroMenu,lineaMenu);
+        cout<<"4. Salir";
         lineaMenu=lineaMenu+1;
         inKeyborad=getch();//entrdad de teclado   
         cout<<"valor entrada es: "<<inKeyborad;
         opMenu(inKeyborad);
-     } while (inKeyborad!=51);      
+     } while (inKeyborad!=52);      
  }
 
  void Ventana::opMenu(int op){
@@ -77,7 +80,13 @@ void Ventana::gotoxy(int posx,int posy){
              }             
          }while(caracter!=13);
          //apertura de la ventana
-         VentanaEdit ventanaEdiccion2(rutaArchivo);
+         ifstream archivo;
+         archivo.open(rutaArchivo);
+         if(archivo.fail()){
+         }else{
+             VentanaEdit ventanaEdiccion2(rutaArchivo);
+         }
+         
      }else{
      }
 
